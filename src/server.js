@@ -12,8 +12,8 @@ connectDB()
 
 app.use(router);
 
-app.get('/*', (_, res) => {
-  res.send('This endpoint is not ready yet, sorry!');
+app.get('/', (_, res) => {
+  res.send('App works properly!');
 });
 
 const PORT = process.env.PORT || 5000
