@@ -12,9 +12,5 @@ connectDB()
 
 app.use(router);
 
-// app.get('/', (_, res) => {
-//   res.send('App works properly!');
-// });
-
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`app works properly in PORT:${PORT}`))
