@@ -4,7 +4,7 @@ const app = express()
 const connectDB = require('./utils/mongo')
 const router = require('./modules');
 
-app.use(express.json({ limit: "50mb" }))
+app.use(express.json())
 
 connectDB()
   .then(() => console.log("Connected"))
