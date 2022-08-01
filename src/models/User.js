@@ -22,8 +22,8 @@ const userSchema = new mongoose.Schema(
             required: true,
         },
         status: {
-            type: Boolean,
-            default: true
+            type: String,
+            default: "active"
         },
         last_login_time: {
             type: String,

@@ -62,7 +62,41 @@ const loginUser = async (req, res) => {
     }
 };
 
+const getUsers = async (_, res) => {
+    try {
+        res.json(await User.find())
+    } catch (error) {
+        console.log({ "error": error.message });
+    }
+};
+
+const blockUsers = async (req, res) => {
+    try {
+        let count = 0
+        const usersArr = req.body.users
+        console.log(usersArr)
+        usersArr.forEach(async element => {
+
+            const filter = { _id: element.id };
+            const update = { status: element.status };
+
+            await User.findOneAndUpdate(filter, update)
+
+            count++
+            if(usersArr.length == count) {
+                res.json({
+                    message: "updated successfully"
+                })
+            }
+        });
+    } catch (error) {
+        console.log({ "error": error.message });
+    }
+}
+
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    getUsers,
+    blockUsers
 }
