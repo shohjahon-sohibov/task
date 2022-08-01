@@ -64,7 +64,7 @@ const loginUser = async (req, res) => {
 
 const getUsers = async (_, res) => {
     try {
-        res.json(await User.find())
+        res.json("ok")
     } catch (error) {
         console.log({ "error": error.message });
     }
